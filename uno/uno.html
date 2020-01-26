@@ -9,5 +9,109 @@
 <body>
     <h1>UNO</h1>
     <a href="../index.html">home</a>
+
+    <h1>Homework about github</h1>
+
+    <h2>Github cheet sheet</h2>
+    <h3>Basic commands</h3>
+    <ul>
+        <li>
+            <code><strong> git config --global user.name aeiou </strong></code>
+            <p>To set/configure your global username.</p>
+        </li>
+        <li>
+            <code><strong> git config --global user.email aeiou@gmail.com</strong></code>
+            <p>To set/configure your global email address.</p>
+        </li>
+        <li>
+            <code><strong> git init</strong></code>
+            <p>To create an empty Git repository or reinitialize an existing one. Basically creates a <code>.git</code> directory. Running <code>git init</code> in a existing repository is safe. It will not overwrite thing that are already there.</p>
+        </li>
+        <li>
+            <code><strong> git status</strong></code>
+            <p>Shows the working tree status. <br> Can be used to obtain a summary of which files have changes that are staged for the next commit. 
+            Displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the working tree and the index file, and paths in the working tree that are not tracked by Git(and are not ignored by gitignore)</p>
+        </li>
+        <li>
+            <code><strong> git add</strong>, git add &ltfilename&gt, git add &ltdirectory&gt, git add .</code>
+            <p>It adds a change in the working directory to the staging area. <br> Basically, it tells Git that you want to include updates to a particular file in the next commit. However, <code>git add</code> doesnt really affect the repository in any significant way - changes are not actually recorded until we run <code>git commit</code>. <br>In a project first, we edit our files in the wroking directory. when we are ready to save a copy of the current sate of the project, we stage changes with <code>git add</code>. After we are happy with the staged snapshot, we commit it to the project history with <code>git commit</code>. <code>git add</code> needs to be called every time we alter a file.</p>
+        </li>
+        <li>
+            <code><strong> git commit</strong> git commit -a, git commit -m "commit message"</code>
+            <p>Record changes to the repository. Commits can be thought of as snapshots or milesotnes along the timeline of a Git project. Commits are created <code>git commit</code> to capture the state of a project at that point in time. Git Snapshots are always commited to the local repository</p>
+        </li>
+        <li>
+            <code><strong> git log</strong> , git log --pretty=format:"%h - %an, %ar : %s"</code>
+            <p>Shows commit logs.<br> By default with no arguments, it lists the commits made in that repository in reverse chronological order; that is, the most recent commits show up first.</p>
+        </li>
+        <li>
+            <code><strong> git checkout</strong></code>
+            <p>Switch branches or restore old snapshots. <br>Is the act of switching between different versions of the target entity and operates upon three distinct entities: files, commits, and branches. .If we dont include a file path as a parameter, <code>git checkout </code>will operate on whole commits. Its also used to update the sate of the repository to a specific point in the projects history. If we pass a branch name, it lets us switch between branches.</p>
+        </li>
+        <li>
+            <code><strong> git branch</strong></code>
+            <p>To list, create, rename or delete branches. <br> Git branches are effectively a poniter to a snapshot of your changes. When we add a new feature or fix a bug - no matter how big or small - we spawn a new branch to encapsulate our changes. It keeps the main <code>master</code> branch free from questionable code. git stores a branch as a reference to a commit, but it's not a container of commits, it's a indepedent line of development. We can think of them as a way to request a brand new working directory, stagin area, and project history. Creating a new branch Git needs to create a new pointer, it doesnt change the repository in any other way. To start adding commits to the new branch, we need to select it with <code>git checkout</code>, and then use the standard <code>git add</code> and <code>git commit</code> commands.</p>
+        </li>
+        <li>
+            <code><strong> git push</strong></code>
+            <p>To Update remote refs using local refs. <br> I used to upload local repository to a remote repository. Pushing is how to transfer commits from your local repository to a remote repo. Its the counterpart to<code>git fetch</code>, but whereas fetching imports commits to local branches, pushing exports commits to remote branches. <mark>Pushing has the potencial to overwrite changes, caution should be taken when pushing.</mark>   </p>
+        </li>
+        <li>
+            <code><strong> git pull</strong></code>
+            <p>Fetch from and integrate with another repository or a local branch. <br> Is used to fetch and download content from a remote repository and inmediately update the local repository to match content. Is actually a combination of to other commands <code>git fetch</code> followed by <code>git merge</code>.</p>
+        </li>
+        <li>
+            <code><strong> git merge</strong></code>
+            <p>Join two or more development histories together. <br> Is Git's way of putting a forked history back together again. The <code>git merge</code> command lets us take the independent lines of development created by <code>git branch</code> and integrate them into a single branch. <br> <code>git merge</code> is often used in conjunction with <code>git checkout</code> for selecting the current branch and <code>git branch -d</code> for deleting the obsolete branch.</p>
+            <p>Mergin steps</p>
+            <ul>
+                <li>Confirm the receiving branch -> executing <code>git status</code> ensure the <code>HEAD</code> is pointing to the correct merge0receiving branch. If needed, execute <code>git checkout &ltreceiving&gt</code> to switch to the receiving branch. In our case we will execute <code>git checkout master</code>.</li>
+                <li>Fecth latest remote commits -> make sure the receving branch and merging branch are up-to-date with the latest remote changes. Execute <code>git fetch</code> to pull the latests remote commits. Once the fecth is completed ensure the <code>master</code> branch has the latest updates by executing <code>git pull</code>.</li>
+                <li>Merge -> to satrt meergin execute <code>git merge &ltbranch nameg&gt</code> where <code>&ltbranch name&gt</code> i the name of the branch that will be merged into the receving branch</li>
+            </ul>
+        </li>
+        <li>
+            <code><strong> git clone</strong></code>
+            <p>Clone a repository into a new directory. <br> Downloads an existing Git repository to our local computer. Typically, the "original" repository is located on a remote server, often from a service like Github, Bitbucket or GitLab. The remote repository's URL is then later referred to as the "origin".</div></p>
+        </li>
+    </ul>
+    <div>
+        <p><strong>Whats <code>.gitignore</code> file?</strong> </p>
+        <p>the gitignore file specifies intentionally untracked files that Git should ignore. Files already rtacked by Git are not affected. Each line in a <code>gitignore</code> files specifies a patter. When deciding whether to ignore a path, Git normally checks <code>gitignore</code>.</p>
+    </div>
+    <h3>Advanced commands</h3>
+    <ul>
+        <li>
+            <code><strong> git revert</strong></code>
+            <p>Reverts some existing commits. <br> This command can be considered an 'undo' type command, it is not a traditional undo operation. Instead of removing the commit from the project history, it figures out how to invert the changes introduced by the commit and appends a new commit with the resulting inverse content. This prevents Git from losing history. Its hould be used to apply the inverse of a commit from our project history. This can be useful, for example, if we are tracking down a bug and find that it was introduced by a single commit. Instead of manually going in, fixing it, and commiting a new snapshot, we can use <code>git revert</code> to autmatically do all of this for us.</p>
+        </li>
+        <li>
+            <code><strong> git reset</strong> , --soft, --mixed, --hard</code>
+            <p>Resets the current <code>HEAD</code> to the specified state. <br>Is a complex and versatile tool for undoing changes.</p>
+            <ul>
+                <li><code>--soft</code> -> only resets the <code>HEAD</code> to the commit we selct. Works basically as the <code>git checkout &ltcommit#&gt</code> but does not creat a detached head state.</li>
+                <li>
+                    <code>--mixed</code> -> Resets the <code>HEAD</code> to the commit we select in both the history and undoes the changes in the index.
+                </li>
+                <li>
+                    <code>--hard</code> -> Resets the <code>HEAD</code> to the commit we select in the both history, undoes the changes in the index, and undoes the changes in our working directory.
+                </li>
+            </ul>
+
+        </li>
+        <li>
+            <code><strong> git rebase</strong></code>
+            <p>Reapply commits on top of another base tip. <br> Is the process of moving or combining a sequence of commits to a new base commit. Is changing the base of out brnach from one commit to another making it appears as if we'd created our branch from a different commit. For example, our master branch has progressed since we started working on a feature branch and we want to get the latest updates to the master branch in our feature branch, but we want to keep our branche's history clean so it appears as if we've been working off the latest master branch.</p>
+        </li>
+        <li>
+            <code><strong> git cherry-pick</strong></code>
+            <p>Apply the changes introduce by some existing commits. <br> Enables arbitrary Git commits to be picked by reference and appended to the current working <code>HEAD</code>. Cherry picking is the act of picking a commit from a branch and applying it to another. It can be useful for undoing changes. For example, a commit is accidently made to the wrong branch. We cant switch to the correct branch and cherry pick the commit to where ir should belong. <mark>Is not always the best practice. Can cause duplicate commits and many scenarios where cherry picking would work. Traditional merges are preferred instead.</mark>     </p>
+        </li>
+        <li>
+            <code><strong> git stash</strong></code>
+            <p>Temporary shclves (or staches) changes we have made to our working copy so we ca work on something else, and then com eback and re-apply them later on. Is handy if we need to quickly switch contecto adn work on womething else, but we are mid-way through a code change and are not quite ready to commit.</p>
+        </li>
+    </ul>
+
 </body>
 </html>
