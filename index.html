@@ -4,11 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Teko|Abril+Fatface|Amatic+SC:400,700|Poiret+One|Coming+Soon&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-    <a href="./uno/uno.html">go to uno</a>
-    <br>
-    <a href="./dos/dos.html"> go to dos</a>
+    <h1>CURSOR Homework</h1>
+    <div id="container">
+        <ul id="menu">
+            <li class ="item">
+                <div class="topic">
+                    <a href="./uno/uno.html">Git</a>
+                </div>
+                <div class="description">
+                    <p>Basic commands</p>
+                    <p>Advanced commands</p>
+                    <p>gitignore file</p>
+                </div>
+            </li>
+            <li class ="item">
+                <div class="topic">
+                    <a href="./dos/dos.html">Variables and data types</a>
+                </div>
+                <div class="description">
+                    <p>Numbers</p>
+                    <p>Strings</p>
+                    <p>Opeations</p>
+                    <p>Math object</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+        <p>Mauricio Morocho</p>
+    </footer>
+    <script>
+        //getElementsByClassName returns a HTML collection 
+        let topics = Array.from(document.getElementsByClassName('topic')); 
+        topics.map(topic => {
+            [...topic.children].map(item => {
+                if(item.textContent.length > 15){
+                    item.style.fontSize = "55px";
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>
