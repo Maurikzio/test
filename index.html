@@ -29,8 +29,21 @@
                 <div class="description">
                     <p>Numbers</p>
                     <p>Strings</p>
-                    <p>Opeations</p>
+                    <p>Operations</p>
                     <p>Math object</p>
+                </div>
+            </li>
+            <li class="item">
+                <div class="topic">
+                    <a href="./tres/tres.html">Loops and conditionals</a>
+                </div>
+                <div class="description">
+                     <p>User interaction: <code>alert, prompt, confirm</code></p>
+                     <p>Comparisons: <code><, >, ===, <=, >=, !</code></p>  
+                     <p>Conditional Operators: <code>if, else, else-if, (..)_?_:</code></p> 
+                     <p>logical Operators: <code>||, &&, !</code></p>
+                     <p>Loops: <code>for, while, do-while, switch</code></p>
+                     <p>Scope: <code>global, local</code></p>
                 </div>
             </li>
         </ul>
@@ -39,15 +52,15 @@
         <p>Mauricio Morocho</p>
     </footer>
     <script>
-        //getElementsByClassName returns a HTML collection 
-        let topics = Array.from(document.getElementsByClassName('topic')); 
-        topics.map(topic => {
-            [...topic.children].map(item => {
-                if(item.textContent.length > 15){
-                    item.style.fontSize = "55px";
-                }
-            });
-        });
+        // getElementsByClassName returns a HTML collection 
+        // let topics = Array.from(document.getElementsByClassName('topic')); 
+        // topics.map(topic => {
+        //     [...topic.children].map(item => {
+        //         if(item.textContent.length > 15){
+        //             item.style.fontSize = "55px";
+        //         }
+        //     });
+        // });
 
     </script>
 </body>
