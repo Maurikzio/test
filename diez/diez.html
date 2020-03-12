@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>events</h1>
+    <ul id="hw"></ul>
+    <button data-key="99" id='work'>hw</button>
+
+    <button id="btn2">click me any way you want</button>
+
+    <p>pharagraph with <button id="btn3">button</button></p>
+
+    <a href="https://developer.mozilla.org/">MDN</a>
+
+    <p id='changeColor'>if you hold the key V the page turn violet</p>
+    
+    <button class="btns">A</button>
+    <button class="btns">B</button>
+
+    <!-- <script src="./diez.js"></script> -->
+    <script>
+        //getting data-key
+        let work = document.getElementById('work');
+        function myEvent(e){
+            console.log(e.target.dataset.key);
+        }
+        work.addEventListener('click', myEvent);
+
+        //getting mouse button used (right/left)
+        let button = document.querySelector('#btn2');
+        function myEvent2(e){
+            if(e.button == 0){
+                console.log('U have used just one finger');
+            }else if(e.button == 2){
+                console.log('You have used 2 fingers');
+            }
+        }
+        button.addEventListener('mousedown', myEvent2)
+
+        //paragraph with button
+        //stop propagation, when click button with mouse btn 2 will occurr just event for button and
+        //not for <p>
+        const para = document.querySelector('p');
+        const btn3 = document.querySelector('#btn3');
+        para.addEventListener('mousedown', function(){
+            console.log('handler for paragraph');
+        }); 
+        btn3.addEventListener('mousedown', function(event){
+            console.log('handler for button');
+            if(event.button == 2) event.stopPropagation();
+        });
+
+        //PREVENT ACTIONS, prevent openning link
+        const link = document.querySelector('a');
+        link.addEventListener('click', function(event){
+            console.log('Nope');
+            event.preventDefault();
+        });
+
+
+        //KEY EVENTS
+        window.addEventListener('keydown', function(event){
+            if(event.key === 'v'){
+                document.body.style.backgroundColor = 'violet';
+            }
+        });
+        window.addEventListener('keyup', function(event){
+            if(event.key === 'v'){
+                document.body.style.backgroundColor = '';
+            }
+        });
+
+
+        //multiple buttons
+        const myBtns = document.querySelectorAll('.btns');
+        // console.log(myBtns[0]);
+        myBtns.forEach(btn => {
+            btn.addEventListener('click', function(e){
+                const content = e.target.innerText
+                console.log(content);
+            })
+        })
+
+        window.addEventListener('keydown', event => {
+            console.log(event.keyCode);
+        })
+
+
+
+
+        //window.addEventListener('keydown', myEvent);
+    </script>
+</body>
+</html>
